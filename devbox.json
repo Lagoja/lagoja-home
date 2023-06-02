@@ -1,0 +1,71 @@
+{
+  "packages": [
+    "git",
+    "htop",
+    "github-cli",
+    "glab",
+    "fzf",
+    "ripgrep",
+    "vscode",
+    "lazygit",
+    "jq",
+    "yq",
+    "neovim",
+    "neofetch",
+    "btop",
+    "cheat",
+    "bash-preexec",
+    "tree-sitter",
+    "nodejs",
+    "python3Full",
+    "exa",
+    "bat",
+    "atuin",
+    "zoxide",
+    "direnv",
+    "starship"
+  ],
+  "env": {
+    "DEVBOX_GLOBAL_PREFIX": "$HOME/.local/share/devbox/global/default/.devbox/nix/profile/default",
+    "DEVBOX_GLOBAL_ROOT": "$HOME/.local/share/devbox/global/current"
+  },
+  "shell": {
+    "init_hook": [
+      ". ${DEVBOX_GLOBAL_ROOT}/init.sh"
+    ],
+    "scripts": {
+      "install-astro": [
+        "echo cloning astronvim repo to ~/.config/nvim",
+        "git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim"
+      ],
+      "install-hook-bash": [
+        "echo adding 'devbox global shellenv' to ~/.bashrc",
+        "grep -qF 'devbox global shellenv' ~/.bashrc || echo 'eval \"$(devbox global shellenv --init-hook)\"' >> ~/.bashrc",
+        "tail -n 1 ~/.bashrc"
+      ],
+      "install-hook-zsh": [
+        "echo adding 'devbox global shellenv' to ~/.zshrc",
+        "grep -qF 'devbox global shellenv' ~/.zshrc || echo 'eval \"$(devbox global shellenv --init-hook)\"' >> ~/.zshrc",
+        "tail -n 1 ~/.zshrc"
+      ],
+      "install-starship-prompt": [
+        "if [ ! -f $HOME/.config/starship.toml ]",
+        "then",
+        "curl -fsSL https://devbox.getfleek.dev/config/starship/starship.toml > $HOME/.config/starship.toml",
+        "fi"
+      ],
+      "latest-hash": [
+        "curl -fsSL https://nixos.org/channels/nixos-unstable/git-revision"
+      ],
+      "npm-global": [
+        "grep -qF '.npm-packages' ~/.npmrc || echo 'prefix=~/.npm-packages' >> ~/.npmrc",
+        "grep -qF '.npm-packages' ~/.zshrc || echo 'export PATH=$PATH:~/.npm-packages/bin' >> ~/.zshrc",
+        "grep -qF '.npm-packages' ~/.bashrc || echo 'export PATH=$PATH:~/.npm-packages/bin' >> ~/.bashrc",
+        "mkdir -p ~/.npm-packages"
+      ]
+    }
+  },
+  "nixpkgs": {
+    "commit": "f80ac848e3d6f0c12c52758c0f25c10c97ca3b62"
+  }
+}
