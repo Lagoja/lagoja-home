@@ -1,3 +1,5 @@
+# zoxide
+eval "$(zoxide init bash)"
 # direnv
 eval "$(direnv hook bash)"
 # atuin
@@ -5,5 +7,3 @@ eval "$(direnv hook bash)"
 eval "$(atuin init bash)"
 # starship
 eval "$(starship init bash)"
-# zoxide
-eval "$(zoxide init bash)"

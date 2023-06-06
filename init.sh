@@ -12,14 +12,14 @@ case $(basename $shell) in
            ;;
 esac
 
+# zoxide
+# zoxide for smart cd
+alias cd='z'
 # bat
 # bat --plain for unformatted cat
 alias catp='bat -P'
 # replace cat with bat
 alias cat='bat'
-# zoxide
-# zoxide for smart cd
-alias cd='z'
 # devbox helpers
 alias dbr='devbox run'
 alias cddevbox='cd $DEVBOX_GLOBAL_ROOT'
