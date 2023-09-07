@@ -1,1 +1,91 @@
-{"packages":["git@latest","htop@latest","gh@latest","glab@latest","fzf@latest","ripgrep@latest","vscode@latest","lazygit@latest","jq@latest","yq@latest","neovim@latest","neofetch@latest","btop@latest","cheat@latest","bash-preexec@latest","tree-sitter@latest","nodejs@latest","python3Full@latest","exa@latest","bat@latest","atuin@latest","zoxide@latest","direnv@latest","starship@latest"],"env":{"DEVBOX_GLOBAL_PREFIX":"$HOME/.local/share/devbox/global/default/.devbox/nix/profile/default","DEVBOX_GLOBAL_ROOT":"$HOME/.local/share/devbox/global/current"},"shell":{"init_hook":[". ${DEVBOX_GLOBAL_ROOT}/init.sh"],"scripts":{"install-astro":["echo cloning astronvim repo to ~/.config/nvim","git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim"],"install-hook-bash":["echo adding 'devbox global shellenv' to ~/.bashrc","grep -qF 'devbox global shellenv' ~/.bashrc || echo 'eval \"$(devbox global shellenv --init-hook)\"' \u003e\u003e ~/.bashrc","tail -n 1 ~/.bashrc"],"install-hook-zsh":["echo adding 'devbox global shellenv' to ~/.zshrc","grep -qF 'devbox global shellenv' ~/.zshrc || echo 'eval \"$(devbox global shellenv --init-hook)\"' \u003e\u003e ~/.zshrc","tail -n 1 ~/.zshrc"],"install-starship-prompt":["if [ ! -f $HOME/.config/starship.toml ]","then","curl -fsSL https://devbox.getfleek.dev/config/starship/starship.toml \u003e $HOME/.config/starship.toml","fi"],"latest-hash":["curl -fsSL https://nixos.org/channels/nixos-unstable/git-revision"],"npm-global":["grep -qF '.npm-packages' ~/.npmrc || echo 'prefix=~/.npm-packages' \u003e\u003e ~/.npmrc","grep -qF '.npm-packages' ~/.zshrc || echo 'export PATH=$PATH:~/.npm-packages/bin' \u003e\u003e ~/.zshrc","grep -qF '.npm-packages' ~/.bashrc || echo 'export PATH=$PATH:~/.npm-packages/bin' \u003e\u003e ~/.bashrc","mkdir -p ~/.npm-packages"]}},"nixpkgs":{}}
+{
+  "packages": {
+    "git": "latest",
+    "htop": "latest",
+    "gh": "latest",
+    "glab": "latest",
+    "fzf": "latest",
+    "ripgrep": "latest",
+    "vscode": "latest",
+    "lazygit": {
+      "version": "latest",
+      "excluded_platforms": [
+        "aarch64-darwin"
+      ]
+    },
+    "jq": "latest",
+    "yq": "latest",
+    "neovim": "latest",
+    "neofetch": "latest",
+    "btop": "latest",
+    "cheat": "latest",
+    "bash-preexec": "latest",
+    "tree-sitter": "latest",
+    "python3Full": "latest",
+    "bat": "latest",
+    "zoxide": "latest",
+    "direnv": "latest",
+    "starship": "latest",
+    "github:F1bonacc1/process-compose/v0.40.2": "",
+    "yarn": "latest",
+    "hello": "latest",
+    "cargo": "latest",
+    "rnix-lsp": "latest",
+    "libiconv": "latest",
+    "spotify": "latest",
+    "glow": "latest",
+    "tree": "latest",
+    "bash": "latest",
+    "nodePackages.prettier": "latest",
+    "gopls": "latest",
+    "delve": "latest",
+    "nodePackages.pnpm": "latest",
+    "llvm": "latest",
+    "tilt": "latest",
+    "atuin": "latest",
+    "eza": "latest"
+  },
+  "env": {
+    "DEVBOX_GLOBAL_PREFIX": "$HOME/.local/share/devbox/global/default/.devbox/nix/profile/default",
+    "DEVBOX_GLOBAL_ROOT": "$HOME/.local/share/devbox/global/current"
+  },
+  "shell": {
+    "init_hook": [
+      ". ${DEVBOX_GLOBAL_ROOT}/init.sh"
+    ],
+    "scripts": {
+      "install-astro": [
+        "echo cloning astronvim repo to ~/.config/nvim",
+        "git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim"
+      ],
+      "install-hook-bash": [
+        "echo adding 'devbox global shellenv' to ~/.bashrc",
+        "grep -qF 'devbox global shellenv' ~/.bashrc || echo 'eval \"$(devbox global shellenv --init-hook)\"' >> ~/.bashrc",
+        "tail -n 1 ~/.bashrc"
+      ],
+      "install-hook-zsh": [
+        "echo adding 'devbox global shellenv' to ~/.zshrc",
+        "grep -qF 'devbox global shellenv' ~/.zshrc || echo 'eval \"$(devbox global shellenv --init-hook)\"' >> ~/.zshrc",
+        "tail -n 1 ~/.zshrc"
+      ],
+      "install-starship-prompt": [
+        "if [ ! -f $HOME/.config/starship.toml ]",
+        "then",
+        "curl -fsSL https://devbox.getfleek.dev/config/starship/starship.toml > $HOME/.config/starship.toml",
+        "fi"
+      ],
+      "latest-hash": [
+        "curl -fsSL https://nixos.org/channels/nixos-unstable/git-revision"
+      ],
+      "npm-global": [
+        "grep -qF '.npm-packages' ~/.npmrc || echo 'prefix=~/.npm-packages' >> ~/.npmrc",
+        "grep -qF '.npm-packages' ~/.zshrc || echo 'export PATH=$PATH:~/.npm-packages/bin' >> ~/.zshrc",
+        "grep -qF '.npm-packages' ~/.bashrc || echo 'export PATH=$PATH:~/.npm-packages/bin' >> ~/.bashrc",
+        "mkdir -p ~/.npm-packages"
+      ]
+    }
+  },
+  "nixpkgs": {
+    "commit": "f80ac848e3d6f0c12c52758c0f25c10c97ca3b62"
+  }
+}
