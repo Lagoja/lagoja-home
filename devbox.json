@@ -1,8 +1,6 @@
 {
   "packages": {
-    "htop":    "latest",
-    "ripgrep": "latest",
-    "vscode":  "latest",
+    "htop": "latest",
     "lazygit": {
       "version": "latest",
       "excluded_platforms": [
@@ -33,10 +31,8 @@
     "tilt":                                     "latest",
     "eza":                                      "latest",
     "zsh-syntax-highlighting":                  "latest",
-    "emacs":                                    "latest",
     "graphviz":                                 "latest",
     "fzf":                                      "latest",
-    "hyperfine":                                "latest",
     "bash-preexec":                             "latest",
     "watch":                                    "latest",
     "gh":                                       "latest",
@@ -48,17 +44,13 @@
     "tmuxPlugins.weather":                      "latest",
     "flake:nixpkgs#prometheus^out,cli":         "",
     "fish":                                     "latest",
-    "github:F1bonacc1/process-compose/v0.85.0": "",
     "atuin":                                    "latest",
     "antigen":                                  "latest",
-    "github:F1bonacc1/process-compose/v0.43.1": "",
-    "nodejs":                                   "latest",
     "httpie":                                   "latest",
-    "github:F1bonacc1/process-compose":         "",
     "dive":                                     "latest",
     "path:./vhs#vhs":                           "",
     "kind":                                     "latest",
-    "github:MHNightCat/superfile#superfile":    ""
+    "aws":                                      "latest"
   },
   "env": {
     "DEVBOX_GLOBAL_PREFIX": "$HOME/.local/share/devbox/global/default/.devbox/nix/profile/default",
@@ -67,7 +59,8 @@
   },
   "shell": {
     "init_hook": [
-      ". ${DEVBOX_GLOBAL_ROOT}/init.sh"
+      ". ${DEVBOX_GLOBAL_ROOT}/init.sh",
+      "unset PYTHONPATH"
     ],
     "scripts": {
       "install-astro": [
