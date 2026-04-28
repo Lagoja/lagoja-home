@@ -12,9 +12,6 @@ case $(basename $shell) in
            ;;
 esac
 
-# zoxide
-# zoxide for smart cd
-alias cd='z'
 # bat
 # bat --plain for unformatted cat
 alias catp='bat -P'

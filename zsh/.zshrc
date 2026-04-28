@@ -10,5 +10,3 @@ if [[ $options[zle] = on ]]; then
 fi
 # starship
 eval "$(starship init zsh)"
-# zoxide
-eval "$(zoxide init zsh)"
